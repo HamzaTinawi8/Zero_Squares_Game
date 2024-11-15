@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bd17c2c-2dec-4884-a4cd-ad7ab6f8fd26" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/BFS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/DFS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/DeepCopy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/DeepCopy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/BFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/BFS.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/State$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/State$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/State$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/State$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/DeepCopy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/DeepCopy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/State.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

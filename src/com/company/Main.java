@@ -1,12 +1,6 @@
 package com.company;
 
-import jdk.swing.interop.SwingInterOpUtils;
-
-import java.awt.image.AreaAveragingScaleFilter;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.Comparator;
 
 public class Main {
 
@@ -21,13 +15,19 @@ public class Main {
     public static void main(String[] args) {
 
         Game game = new Game();
-//        game.playGame();
-//       game.useBfs();
-//      game.useDfs();
 
-
-
-
+        Scanner input = new Scanner(System.in);
+        System.out.println("Welcome In Zero Squares Games ☺");
+        System.out.println("Enter a number of process that are you want : \n 1 : PlayGame \n 2 : Use BFS Algorithm \n 3 : Use DFS Algorithm" );
+        System.out.println("number is : ");
+        int inp = input.nextInt();
+        System.out.println("___________________________");
+        if( inp == 1 )
+            game.playGame();
+        else if (inp == 2)
+              game.useBfs();
+        else if (inp == 3)
+              game.useDfs();
 
     }
 
