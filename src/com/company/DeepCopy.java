@@ -48,4 +48,14 @@ public class DeepCopy {
         }
         return copyFreeGoals;
     }
+
+
+    public  static ArrayList<State> copyPath (ArrayList<State> paths) {
+        ArrayList<State> copyPath = new ArrayList<>();
+
+        for (State path: paths) {
+            copyPath.add(new State(path));
+        }
+        return copyPath;
+    }
 }

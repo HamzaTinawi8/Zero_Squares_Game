@@ -39,6 +39,13 @@ public class Game {
             "------------",
     };
 
+    String[] level1 = {
+            "-###-",
+            "#c..#",
+            "#...#",
+            "#..C#",
+            "#####"
+    };
     void  playGame(){
         Scanner input = new Scanner(System.in);
         Cells[][] board = createCells(level);
@@ -55,4 +62,60 @@ public class Game {
 
     }
 
+    void useBfs (){
+        Cells[][] board = createCells(level);
+        State state = new State(board);
+
+        BFS bfs = new BFS();
+      ArrayList<State> statesOfBfs = bfs.bfsAlgorithm(state);
+      int length_path_bfs = statesOfBfs.size();
+        int i = 1;
+        for (State sta: statesOfBfs) {
+            if( i != 1){
+                if (sta.dir == "right")
+            System.out.println(i +": " + sta.dir +" ➡");
+                else if (sta.dir == "left")
+                    System.out.println(i +": " + sta.dir + " ⬅");
+                else if (sta.dir == "down")
+                    System.out.println(i +": " + sta.dir+" ⬇");
+                else if (sta.dir == "up")
+                    System.out.println(i +": " + sta.dir +" ⬆");
+            }
+            else System.out.println(i +": " + "primary state ");
+            i ++;
+            System.out.println(sta);
+        }
+        System.out.println("The number of states to reach the goal :  " + length_path_bfs);
+        System.out.println("The Game Is Finished By BFS ❤✔");
+
+    }
+
+
+    void useDfs (){
+        Cells[][] board = createCells(level);
+        State state = new State(board);
+
+        DFS dfs = new DFS();
+        ArrayList<State> statesOfDfs = dfs.dfsAlgorithm(state);
+        int length_path_dfs = statesOfDfs.size();
+        int i = 1;
+        for (State sta: statesOfDfs) {
+            if( i != 1){
+                if (sta.dir == "right")
+                    System.out.println(i +": " + sta.dir +" ➡");
+                else if (sta.dir == "left")
+                    System.out.println(i +": " + sta.dir + " ⬅");
+                else if (sta.dir == "down")
+                    System.out.println(i +": " + sta.dir+" ⬇");
+                else if (sta.dir == "up")
+                    System.out.println(i +": " + sta.dir +" ⬆");
+            }
+            else System.out.println(i +": " + "primary state ");
+            i ++;
+            System.out.println(sta);
+        }
+        System.out.println("The number of states to reach the goal :  " + length_path_dfs);
+        System.out.println("The Game Is Finished By DFS ❤✔");
+
+    }
 }

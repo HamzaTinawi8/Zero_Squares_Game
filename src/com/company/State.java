@@ -1,13 +1,10 @@
 package com.company;
 
-import com.sun.security.jgss.GSSUtil;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Objects;
-import java.io.*;
+
 
 public class State {
 
@@ -17,6 +14,7 @@ public class State {
     ArrayList<GoalCell> goals;
     ArrayList<FreeGoalCell> freeGoals;
     ArrayList<PlayerCell> availablePlayers = new ArrayList<>();
+    String dir ="";
 
     public State(Cells[][] board) {
         this.board = board;
@@ -28,12 +26,14 @@ public class State {
                  boolean isFinalState,
                  ArrayList<PlayerCell> players,
                  ArrayList<GoalCell> goals,
-                 ArrayList<FreeGoalCell> freeGoals){
+                 ArrayList<FreeGoalCell> freeGoals , String dir){
         this.board = board;
         this.isFinalState = isFinalState;
         this.players = players;
         this.goals = goals;
         this.freeGoals = freeGoals;
+        this.dir = dir;
+
     }
 
     public State(State state){
@@ -42,7 +42,8 @@ public class State {
                 state.isFinalState,
                 DeepCopy.copyPlayers(state.players),
                 DeepCopy.copyGoals(state.goals),
-                DeepCopy.copyFreeGoals(state.freeGoals)
+                DeepCopy.copyFreeGoals(state.freeGoals),
+                state.dir
         );
     }
 
@@ -76,8 +77,9 @@ public class State {
         for (String direction: directions) {
             State newState = move(direction);
             if(!newState.equals(this)){
+                newState.dir = direction;
                 nextStates.add(newState);
-                System.out.println(newState);
+//                System.out.println(newState);
             }
         }
         return nextStates;
@@ -232,16 +234,6 @@ public class State {
         }
     }
 
-//    void print() {
-//        for (Cells[] cells : board) {
-//            for (Cells cell : cells) {
-//                System.out.print(cell.name);
-//                System.out.print(" ");
-//            }
-//            System.out.println();
-//        }
-//        System.out.println("___________________________");
-//    }
 
 }
 

@@ -21,7 +21,13 @@ public class Main {
     public static void main(String[] args) {
 
         Game game = new Game();
-        game.playGame();
+//        game.playGame();
+//       game.useBfs();
+//      game.useDfs();
+
+
+
+
 
     }
 
