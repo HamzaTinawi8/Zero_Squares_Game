@@ -15,6 +15,7 @@ public class State {
     ArrayList<FreeGoalCell> freeGoals;
     ArrayList<PlayerCell> availablePlayers = new ArrayList<>();
     String dir ="";
+    int coastState = 1;
 
     public State(Cells[][] board) {
         this.board = board;
@@ -26,14 +27,14 @@ public class State {
                  boolean isFinalState,
                  ArrayList<PlayerCell> players,
                  ArrayList<GoalCell> goals,
-                 ArrayList<FreeGoalCell> freeGoals , String dir){
+                 ArrayList<FreeGoalCell> freeGoals , String dir , int coastState){
         this.board = board;
         this.isFinalState = isFinalState;
         this.players = players;
         this.goals = goals;
         this.freeGoals = freeGoals;
         this.dir = dir;
-
+        this.coastState = coastState;
     }
 
     public State(State state){
@@ -43,7 +44,8 @@ public class State {
                 DeepCopy.copyPlayers(state.players),
                 DeepCopy.copyGoals(state.goals),
                 DeepCopy.copyFreeGoals(state.freeGoals),
-                state.dir
+                state.dir,
+                state.coastState
         );
     }
 
