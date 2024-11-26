@@ -85,7 +85,8 @@ public class Game {
             i ++;
             System.out.println(sta);
         }
-        System.out.println("The number of states to reach the goal :  " + length_path_bfs);
+        int the_length = length_path_bfs-1;
+        System.out.println("The number of states to reach the goal :  " + the_length);
         System.out.println("The Game Is Finished By BFS ❤✔");
 
     }
@@ -116,6 +117,67 @@ public class Game {
         }
         System.out.println("The number of states to reach the goal :  " + length_path_dfs);
         System.out.println("The Game Is Finished By DFS ❤✔");
+
+    }
+
+
+
+    void useDfsRecursive (){
+        Cells[][] board = createCells(level);
+        State state = new State(board);
+
+        DfsRecursive dfs = new DfsRecursive();
+        ArrayList<State> statesOfDfs = dfs.dfsAlgorithm(state);
+        int length_path_dfs = statesOfDfs.size();
+        int i = 1;
+        for (State sta: statesOfDfs) {
+            if( i != 1){
+                if (sta.dir == "right")
+                    System.out.println(i +": " + sta.dir +" ➡");
+                else if (sta.dir == "left")
+                    System.out.println(i +": " + sta.dir + " ⬅");
+                else if (sta.dir == "down")
+                    System.out.println(i +": " + sta.dir+" ⬇");
+                else if (sta.dir == "up")
+                    System.out.println(i +": " + sta.dir +" ⬆");
+            }
+            else System.out.println(i +": " + "primary state ");
+            i ++;
+            System.out.println(sta);
+        }
+        int the_length= length_path_dfs-1;
+        System.out.println("The number of states to reach the goal :  " + the_length);
+        System.out.println("The Game Is Finished By DFS(Recursive) ❤✔");
+
+    }
+
+
+    void useUniformCost (){
+        Cells[][] board = createCells(level);
+        State state = new State(board);
+
+        DfsRecursive dfs = new DfsRecursive();
+        ArrayList<State> statesOfDfs = dfs.dfsAlgorithm(state);
+        int length_path_dfs = statesOfDfs.size();
+        int i = 1;
+        for (State sta: statesOfDfs) {
+            if( i != 1){
+                if (sta.dir == "right")
+                    System.out.println(i +": " + sta.dir +" ➡");
+                else if (sta.dir == "left")
+                    System.out.println(i +": " + sta.dir + " ⬅");
+                else if (sta.dir == "down")
+                    System.out.println(i +": " + sta.dir+" ⬇");
+                else if (sta.dir == "up")
+                    System.out.println(i +": " + sta.dir +" ⬆");
+            }
+            else System.out.println(i +": " + "primary state ");
+            i ++;
+            System.out.println(sta);
+        }
+        int the_length= length_path_dfs-1;
+        System.out.println("The number of states to reach the goal :  " + the_length);
+        System.out.println("The Game Is Finished By DFS(Recursive) ❤✔");
 
     }
 }

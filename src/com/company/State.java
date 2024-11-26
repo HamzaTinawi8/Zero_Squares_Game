@@ -223,7 +223,8 @@ public class State {
             availablePlayers.sort( new Comparator<PlayerCell>() {
                 @Override
                 public int compare(PlayerCell p1, PlayerCell p2) {
-                    return ascending ? Integer.compare(p1.x, p2.x) : Integer.compare(p2.x, p1.x);
+                    return ascending ? Integer.compare(p1.x, p2.x)
+                            : Integer.compare(p2.x, p1.x);
                 }
             });
         } else {

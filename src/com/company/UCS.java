@@ -1,49 +1,80 @@
 package com.company;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class UCS {
 
-    ArrayList<State> ucsAlgorithm(State state) {
-
+    ArrayList<State> ucsAlgorithm(State initialState) {
+        PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(node -> node.pathCost));
         ArrayList<State> visited = new ArrayList<>();
-        ArrayList<State> path = new ArrayList<>();
-        Queue<List<State>> myQueue = new PriorityQueue<>();
 
-        List<State> initialStateList = new ArrayList<>();
-        initialStateList.add(state);
+        queue.offer(new Node(initialState, new ArrayList<>(), 0));
 
-        myQueue.offer(initialStateList);
+        while (!queue.isEmpty()) {
+            Node current = queue.poll();
+            State currentState = current.state;
 
-        while (!myQueue.isEmpty()) {
-            path = (ArrayList<State>) myQueue.poll();
-            State currentState = path.get(path.size() - 1);
+            if (currentState.isFinalState) {
+                return current.path;
+            }
 
-            if (currentState.isFinalState)
-                return path;
-
-            if (!visited.contains(currentState) && state.coastState!= currentState.coastState) {
+            if (!visited.contains(currentState)) {
                 visited.add(currentState);
+
                 ArrayList<State> children = currentState.nextState();
                 for (State child : children) {
-                    int s1 = child.coastState;
-                    int s2 = currentState.coastState;
-                    int sum = s1 + s2 ;
-                    child.coastState = sum ;
-                    ArrayList<State> copy_path = DeepCopy.copyPath(path);
-                    copy_path.add(child);
-                    myQueue.offer(copy_path);
-                }
-                for ( State child : children) {
-                  //func for select child
+                    ArrayList<State> newPath = new ArrayList<>(current.path);
+                    newPath.add(child);
+                    int newCost = current.pathCost + child.coastState;
+                    queue.offer(new Node(child, newPath, newCost));
                 }
             }
         }
-        return path;
+
+        return null;
     }
 
+    static class Node {
+        State state;
+        ArrayList<State> path;
+        int pathCost;
+
+        Node(State state, ArrayList<State> path, int pathCost) {
+            this.state = state;
+            this.path = path;
+            this.pathCost = pathCost;
+        }
+    }
 
 }
+
+//
+//    class Path_Cost{
+//        ArrayList<State> path;
+//        int cost ;
+//
+//        public Path_Cost( ArrayList<State> path , int cost){
+//            this.path = path;
+//            this.cost = cost;
+//        }
+//    }
+//
+//
+//    void sortCells(ArrayList<PlayerCell> availablePlayers ) {
+//            availablePlayers.sort( new Comparator<PlayerCell>() {
+//                @Override
+//                public int compare(PlayerCell p1, PlayerCell p2) {
+//                    return Integer.compare(p1.x, p2.x);
+//
+//                }
+//            }); }
+
+
 
 
 
