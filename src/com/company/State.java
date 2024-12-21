@@ -9,13 +9,13 @@ import java.util.Comparator;
 public class State {
 
     Cells[][] board;
-    boolean isFinalState;
-    ArrayList<PlayerCell> players;
+    public boolean isFinalState;
+    public ArrayList<PlayerCell> players;
     ArrayList<GoalCell> goals;
     ArrayList<FreeGoalCell> freeGoals;
     ArrayList<PlayerCell> availablePlayers = new ArrayList<>();
     String dir ="";
-    int coastState = 1;
+    int coastState;
 
     public State(Cells[][] board) {
         this.board = board;
@@ -33,7 +33,7 @@ public class State {
         this.players = players;
         this.goals = goals;
         this.freeGoals = freeGoals;
-        this.dir = dir;
+        this.dir = dir ;
         this.coastState = coastState;
     }
 
@@ -45,8 +45,7 @@ public class State {
                 DeepCopy.copyGoals(state.goals),
                 DeepCopy.copyFreeGoals(state.freeGoals),
                 state.dir,
-                state.coastState
-        );
+                state.coastState);
     }
 
 
@@ -81,7 +80,6 @@ public class State {
             if(!newState.equals(this)){
                 newState.dir = direction;
                 nextStates.add(newState);
-//                System.out.println(newState);
             }
         }
         return nextStates;
@@ -89,6 +87,7 @@ public class State {
 
     State move(String direction){
         State newState = new State(this);
+        newState.coastState =0;
         for (PlayerCell player: newState.players) {
             boolean available = newState.check(direction, player.x, player.y);
             if(available) newState.availablePlayers.add(player);
@@ -99,6 +98,7 @@ public class State {
        sortForDirection(newState.availablePlayers , direction);
         for (PlayerCell availablePlayer: newState.availablePlayers) {
             while(newState.check(direction, availablePlayer.x, availablePlayer.y)) {
+                availablePlayer.step ++ ;
                 newState.updateBoardBeforeMoving(availablePlayer);
                 if (direction.equals("right")) availablePlayer.y++;
                 else if (direction.equals("left")) availablePlayer.y--;
@@ -106,6 +106,7 @@ public class State {
                 else if (direction.equals("down")) availablePlayer.x++;
                 if(newState.updateBoardAfterMoving(availablePlayer)) break;
             }
+         newState.coastState += availablePlayer.step;
         }
         newState.isFinalState();
         return newState;
@@ -236,6 +237,8 @@ public class State {
             });
         }
     }
+
+
 
 
 }

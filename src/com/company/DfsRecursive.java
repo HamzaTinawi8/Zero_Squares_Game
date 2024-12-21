@@ -32,3 +32,35 @@ public class DfsRecursive {
         }
 
 }
+//
+//
+//    Map<String, Object> solution = new HashMap<>();
+//    Set<State> visited = new HashSet<>();
+//    State startState = states.getFirst();
+//        return RDFSHelper(startState, solution, visited);
+//                }
+//
+//public Map<String, Object> RDFSHelper(State node, Map<String, Object> solution, Set<State> visited) {
+//        if (visited.contains(node)) return null;
+//        if (!node.isSolvable()) return null;
+//        visited.add(node);
+//        if (node.goalCheck()) {
+//        ArrayList<State> path = new ArrayList<>();
+//        path.add(node);
+//        while (node.parent != null) {
+//        node = node.parent;
+//        path.add(node);
+//        }
+//        solution.put("visitedSize", visited.size());
+//        solution.put("path", path);
+//        return solution;
+//        }
+//        for (State nextState : node.nextStates()) {
+//        if (!visited.contains(nextState)) {
+//        Map<String, Object> result = RDFSHelper(nextState, solution, visited);
+//        if (result != null) {
+//        return result;
+//        }
+//        }
+//        }
+//        return null;

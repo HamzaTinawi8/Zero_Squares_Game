@@ -4,7 +4,8 @@ import java.util.*;
 
 public class BFS {
 
-    ArrayList<State> bfsAlgorithm(State state) {
+   Map<String , ArrayList<State>> bfsAlgorithm(State state) {
+        Map<String ,ArrayList<State>> result = new HashMap<>();
         ArrayList<State> visited = new ArrayList<>();
         ArrayList<State> path = new ArrayList<>();
         Queue<List<State>> myQueue = new ArrayDeque<>();
@@ -18,8 +19,11 @@ public class BFS {
              path = (ArrayList<State>) myQueue.poll();
             State currentState = path.get(path.size() - 1);
 
-            if (currentState.isFinalState)
-                return path;
+            if (currentState.isFinalState){
+                result.put("path" , path);
+                result.put("visited" , visited);
+                return result ;
+            }
 
             if (!visited.contains(currentState)) {
                 visited.add(currentState);
@@ -31,7 +35,9 @@ public class BFS {
                 }
             }
         }
-    return path;
+       result.put("path" , path);
+       result.put("visited" , visited);
+       return result;
     }
 }
 

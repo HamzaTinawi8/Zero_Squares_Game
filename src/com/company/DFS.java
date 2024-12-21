@@ -3,7 +3,8 @@ package com.company;
 import java.util.*;
 
 public class DFS {
-    ArrayList<State> dfsAlgorithm(State state) {
+    Map<String , ArrayList<State>> dfsAlgorithm(State state) {
+        Map<String ,ArrayList<State>> result = new HashMap<>();
         ArrayList<State> visited = new ArrayList<>();
         ArrayList<State> path = new ArrayList<>();
         Stack<List<State>> myStack = new Stack<>();
@@ -17,8 +18,12 @@ public class DFS {
             path = (ArrayList<State>) myStack.pop();
             State currentState = path.get(path.size() - 1);
 
-            if (currentState.isFinalState)
-                return path;
+            if (currentState.isFinalState){
+                result.put("path" , path);
+                result.put("visited" , visited);
+                return result;
+            }
+
 
             if (!visited.contains(currentState)) {
                 visited.add(currentState);
@@ -30,6 +35,8 @@ public class DFS {
                 }
             }
         }
-        return path;
+        result.put("path" , path);
+        result.put("visited" , visited);
+        return result;
     }
 }

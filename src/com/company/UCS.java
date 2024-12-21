@@ -1,80 +1,53 @@
 package com.company;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Queue;
+
+import java.util.*;
+
 
 public class UCS {
 
-    ArrayList<State> ucsAlgorithm(State initialState) {
-        PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(node -> node.pathCost));
-        ArrayList<State> visited = new ArrayList<>();
+    Map<String , Object > ucsAlgorithm(State state) {
+        Map<String ,Object> result = new HashMap<>();
+       ArrayList<State> visited = new ArrayList<>();
+       ArrayList<State> initialStateList = new ArrayList<>();
+       initialStateList.add(state);
+       PathWithCost initialPath = new PathWithCost(initialStateList, 0);
+       PriorityQueue<PathWithCost> myQueue = new PriorityQueue<>(Comparator.comparingInt(p -> p.totalCost));
 
-        queue.offer(new Node(initialState, new ArrayList<>(), 0));
+        myQueue.offer(initialPath);
 
-        while (!queue.isEmpty()) {
-            Node current = queue.poll();
-            State currentState = current.state;
 
-            if (currentState.isFinalState) {
-                return current.path;
-            }
+        while (!myQueue.isEmpty()) {
+            PathWithCost  currentPathWithCost = myQueue.poll();
+            ArrayList<State>  path = currentPathWithCost.path;
+            State currentState = path.get(path.size() - 1);
 
-            if (!visited.contains(currentState)) {
+
+            if (currentState.isFinalState){
+                result.put("path" , currentPathWithCost);
+                result.put("visited" , visited);
+                return  result; }
+
+            if (!visited.contains(currentState) ){
                 visited.add(currentState);
-
                 ArrayList<State> children = currentState.nextState();
                 for (State child : children) {
-                    ArrayList<State> newPath = new ArrayList<>(current.path);
-                    newPath.add(child);
-                    int newCost = current.pathCost + child.coastState;
-                    queue.offer(new Node(child, newPath, newCost));
+                    ArrayList<State> copy_path = DeepCopy.copyPath(path);
+                    copy_path.add(child);
+                    int newCost = calculatePathCost(copy_path);
+                    PathWithCost newPathWithCost = new PathWithCost(copy_path , newCost);
+                    myQueue.offer(newPathWithCost);
                 }
             }
         }
-
         return null;
     }
 
-    static class Node {
-        State state;
-        ArrayList<State> path;
-        int pathCost;
-
-        Node(State state, ArrayList<State> path, int pathCost) {
-            this.state = state;
-            this.path = path;
-            this.pathCost = pathCost;
+    private int calculatePathCost(ArrayList<State> path) {
+       int total = 0;
+        for (State state: path) {
+              total +=  state.coastState;
         }
+       return total;
     }
-
 }
-
-//
-//    class Path_Cost{
-//        ArrayList<State> path;
-//        int cost ;
-//
-//        public Path_Cost( ArrayList<State> path , int cost){
-//            this.path = path;
-//            this.cost = cost;
-//        }
-//    }
-//
-//
-//    void sortCells(ArrayList<PlayerCell> availablePlayers ) {
-//            availablePlayers.sort( new Comparator<PlayerCell>() {
-//                @Override
-//                public int compare(PlayerCell p1, PlayerCell p2) {
-//                    return Integer.compare(p1.x, p2.x);
-//
-//                }
-//            }); }
-
-
-
-
-

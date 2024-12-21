@@ -2,16 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bd17c2c-2dec-4884-a4cd-ad7ab6f8fd26" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/DfsRecursive.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/AStar Algorithm-level-30.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/AStar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/FormattLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/GeneralPath.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/HillClimbingSimple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/HillClimbingSteepest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/LoggerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/PathWithCost.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/BFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/BFS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/DFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/DFS.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/PlayerCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/PlayerCell.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/State$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/State$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/State$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/State$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/State.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/UCS$Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/UCS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZeroSquares/com/company/UCS.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/BFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/DFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/DfsRecursive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/DfsRecursive.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/PlayerCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/PlayerCell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/State.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/UCS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UCS.java" afterDir="false" />
     </list>
@@ -100,6 +115,9 @@
   <component name="PropertiesComponent">
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -139,5 +157,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="players.get(0).name" />
+        <watch expression="children.get(0).coastState" />
+        <watch expression="pathWithCost.path.get(0).coastState" />
+        <watch expression="((PathWithCost)p).path" custom="com.company.PathWithCost" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
